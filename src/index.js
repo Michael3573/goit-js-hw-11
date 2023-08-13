@@ -13,12 +13,15 @@ let value = '';
 let totalHitsImg = 0;
 
 // loading image
-function onload() {
+async function onload() {
   currentPage += 1;
-  getImage();
+  infiniteScroll.options.path = function () {
+    return `${BASE_URL}?key=${API_KEY}&q=${value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${PER_PAGE}&page=${currentPage}`;
+  };
+  await getImage();
 }
 
-//search form
+// search form
 function onSubmitSearch(e) {
   e.preventDefault();
   value = e.currentTarget.elements.searchQuery.value.trim();
@@ -38,10 +41,10 @@ async function getImage() {
       'beforeend',
       createMarkup(resp.hits)
     );
-    //библиотека лайбокс и уведомление
+    // библиотека лайтбокс и уведомление
     lightbox.refresh();
 
-    //если неправильный запрос
+    // если неправильный запрос
     if (resp.total === 0) {
       message('Please write correct data!');
       return;
@@ -68,7 +71,7 @@ async function getImage() {
   }
 }
 
-//infiniti scroll
+// infiniti scroll
 const infiniteScroll = new InfiniteScroll(refs.galleryWrapperEl, {
   responseType: 'json',
   history: false,
@@ -78,7 +81,9 @@ const infiniteScroll = new InfiniteScroll(refs.galleryWrapperEl, {
   },
 });
 
-infiniteScroll.on('load', onload);
+infiniteScroll.on('load', async () => {
+  await onload();
+});
 
 infiniteScroll.on('error', () => {
   Report.failure('404', '');
@@ -87,6 +92,7 @@ infiniteScroll.on('error', () => {
 function message(sms) {
   Report.warning(`Warning!`, `${sms}`);
 }
+
 let lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
