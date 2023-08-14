@@ -28,21 +28,21 @@ input {
   appearance: none;
   border: none;
   outline: none;
-  border-bottom: 0.2em solid #6d078f;
+  border-bottom: 0.2em solid #333333;
   border-radius: 0.2em 0.2em 0 0;
   padding: 0.4em;
-  color: #6d078f;
+  color: #333333;
 }
 
 input::placeholder {
-  color: #6d078f;
+  color: #333333;
 }
 
 button {
   border-radius: 8px;
   border-style: none;
   color: #fafafa;
-  background-color: #6d078f;
+  background-color: #333333;
   cursor: pointer;
   height: 40px;
   padding: 10px 16px;
