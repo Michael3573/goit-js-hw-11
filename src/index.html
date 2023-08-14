@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 11</title>
+    <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Search Image</title>
   </head>
   <body>
-    <div class="container">
-      <!-- форма пошуку зображень -->
-      <form class="search-form" id="search-form">
-        <input
-          type="text"
-          name="searchQuery"
-          autocomplete="off"
-          placeholder="Search images..."
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      <!-- Картки зображень -->
-      <div class="gallery"></div>
-    </div>
-    <span class="js-span"></span>
-    <script type="module" src="./index.js"></script>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gallery"></div>
+    <div class="js-guard"></div>
+    <button type="button" class="load-more" hidden>Load more</button>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>

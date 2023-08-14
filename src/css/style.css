@@ -1,64 +1,55 @@
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  /* height: 200px; */
-}
-button {
-  display: block;
-}
-.is-hidden {
-  display: none;
-}
-.container {
-  max-width: 448px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.js-span {
-  display: flex;
-  justify-content: center;
-  font-size: 18px;
-  margin: 10px auto;
-}
 .gallery {
+  margin-top: 50px;
+  gap: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-}
-
-.search-form {
-  margin: 0 auto;
-  display: flex;
-  margin-bottom: 16px;
-
   justify-content: center;
 }
-input {
-  width: 500px;
-  padding: 8px;
-}
-@media screen and (min-width: 668px) {
-  .container {
-    max-width: 768px;
-  }
-  .photo-card {
-    flex-basis: calc((100% - 12px) / 2);
-  }
-}
-@media screen and (min-width: 1158px) {
-  .container {
-    max-width: 1158px;
-  }
-  .photo-card {
-    flex-basis: calc((100% - 24px) / 3);
-  }
+
+.photo-card {
+  height: 240px;
+  width: 350px;
+  border-radius: 1em;
+  box-shadow: 0 10px 20px #dbdbdb;
 }
 
 .info {
   display: flex;
-  gap: 8px;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 0 1.5em;
+  color: black;
+}
+
+input {
+  width: 40%;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: 0.2em solid #6d078f;
+  border-radius: 0.2em 0.2em 0 0;
+  padding: 0.4em;
+  color: #6d078f;
+}
+
+input::placeholder {
+  color: #6d078f;
+}
+
+button {
+  border-radius: 8px;
+  border-style: none;
+  color: #fafafa;
+  background-color: #6d078f;
+  cursor: pointer;
+  height: 40px;
+  padding: 10px 16px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
